@@ -12,5 +12,7 @@ To run the game:
   This should open the game
 
 How to play:
+
   Use your arrow buttons to move snake(black) to eat food(green).. avoid crossing boundaries. Your score will be updated whenever you eat food and length of snake will be increased.
   You can also use a,w,s,d buttons instead of arrows.
+  Speed increases as length of snake increases.

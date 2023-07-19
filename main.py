@@ -23,7 +23,7 @@ pygame.display.set_caption('Summmer Snake game')
 snake_size = 10
  
 clock = pygame.time.Clock()
-speed = 15
+speed = 5
 
 font_style = pygame.font.SysFont("bahnschrift", 25)
 score_font = pygame.font.SysFont("comicsansms", 35)
@@ -41,6 +41,8 @@ def message(msg,color):
     screen.blit(mesg, [screen_width/5, screen_height/3])
 
 def gameloop():
+
+    global speed
     over = False
     close = False
 
@@ -80,16 +82,16 @@ def gameloop():
                 over = True
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     x1_change = -snake_size
                     y1_change = 0
-                elif event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     x1_change = snake_size
                     y1_change = 0
-                elif event.key == pygame.K_UP:
+                elif event.key == pygame.K_UP or event.key == pygame.K_w:
                     y1_change = -snake_size
                     x1_change = 0
-                elif event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     y1_change = snake_size
                     x1_change = 0
 
@@ -123,17 +125,12 @@ def gameloop():
             y_food = round(random.randrange(0,screen_height-snake_size)/10) * 10
             snake_length += 1
 
+            if speed <= 55:
+                speed += 10
+
         clock.tick(speed)
 
     pygame.quit()
     quit()
 
 gameloop()
-
- 
-
-
-
-
-pygame.quit()
-quit()
